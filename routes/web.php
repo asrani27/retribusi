@@ -71,27 +71,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/retribusi/edit/{id}', 'RetribusiController@update')->name('editretribusi');
 
 
-    Route::get('/hasil', 'HasilController@index');
-    Route::get('/hasil/add', 'HasilController@add');
-    Route::get('/hasil/edit/{id}', 'HasilController@edit');
-    Route::get('/hasil/delete/{id}', 'HasilController@delete');
-    Route::post('/hasil/add', 'HasilController@save')->name('hasil');
-    Route::post('/hasil/edit/{id}', 'HasilController@update')->name('edithasil');
-
-    Route::get('/serahterima', 'SerahTerimaController@index');
-    Route::get('/serahterima/add', 'SerahTerimaController@add');
-    Route::get('/serahterima/edit/{id}', 'SerahTerimaController@edit');
-    Route::get('/serahterima/delete/{id}', 'SerahTerimaController@delete');
-    Route::post('/serahterima/add', 'SerahTerimaController@save')->name('serahterima');
-    Route::post('/serahterima/edit/{id}', 'SerahTerimaController@update')->name('editserahterima');
+    Route::get('/peralihan', 'PeralihanController@index');
+    Route::get('/peralihan/add', 'PeralihanController@add');
+    Route::get('/peralihan/edit/{id}', 'PeralihanController@edit');
+    Route::get('/peralihan/delete/{id}', 'PeralihanController@delete');
+    Route::post('/peralihan/add', 'PeralihanController@save')->name('peralihan');
+    Route::post('/peralihan/edit/{id}', 'PeralihanController@update')->name('editperalihan');
 
 
-    Route::get('/pemusnahan', 'PemusnahanController@index');
-    Route::get('/pemusnahan/add', 'PemusnahanController@add');
-    Route::get('/pemusnahan/edit/{id}', 'PemusnahanController@edit');
-    Route::get('/pemusnahan/delete/{id}', 'PemusnahanController@delete');
-    Route::post('/pemusnahan/add', 'PemusnahanController@save')->name('pemusnahan');
-    Route::post('/pemusnahan/edit/{id}', 'PemusnahanController@update')->name('editpemusnahan');
+    Route::get('/registrasi', 'registrasiController@index');
+    Route::get('/registrasi/add', 'registrasiController@add');
+    Route::get('/registrasi/edit/{id}', 'registrasiController@edit');
+    Route::get('/registrasi/delete/{id}', 'registrasiController@delete');
+    Route::post('/registrasi/add', 'registrasiController@save')->name('registrasi');
+    Route::post('/registrasi/edit/{id}', 'registrasiController@update')->name('editregistrasi');
 
     Route::get('/user', 'UserController@index');
     Route::get('/user/add', 'UserController@add');
