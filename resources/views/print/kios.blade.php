@@ -22,10 +22,10 @@
   
   <table class="tgj"  width='100%'>
     <tr>
-      <td width=100><img src="/formlogin/pdam.png" width="70px"></td>
+      <td width=100><img src="/logo.png" width="70px"></td>
       <td align=center class="judul"><b><font size="5">
-        PDAM BANDARMASIH<br /></font></b>
-        <b>Jl. A. Yani No.12, Kebun Bunga, Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan 70234<br></b>
+        PASAR BEBAS BANJIR<br />DINAS PERDAGANGAN DAN PERINDUSTRIAN KABUPATEN BARITO KUALA</font></b><br/>
+        <b>JL Yetro Sinseng No 69, Muara Teweh Kalimantan Tengah 73812<br></b>
       </td>
       <td width=100></td>
     </tr>
@@ -38,7 +38,7 @@
     <br/>
     <div class="row invoice-info">
       <div class="col-sm-12 invoice-col text-center">
-            <h3><strong>LAPORAN PENGGUNA</strong></h3>
+            <h4><strong>LAPORAN KIOS</strong></h4>
             
         </address>
       </div>
@@ -53,10 +53,10 @@
           <thead>
           <tr style="background-color: silver">
             <th>No</th>
-            <th>Nama pengguna</th>
-            <th>Alamat</th>
-            <th>Telp</th>
-            <th>Departemen</th>
+            <th>Nomor Kios</th>
+            <th>Nama Kios</th>
+            <th>Blok</th>
+            <th>Status</th>
           </tr>
           </thead>
           @php
@@ -66,22 +66,22 @@
               @foreach ($data as $item)
                 <tr>
                     <td>{{$no++}}</td>
+                    <td>{{$item->nomor}}</td>
                     <td>{{$item->nama}}</td>
-                    <td>{{$item->alamat}}</td>
-                    <td>{{$item->telp}}</td>
-                    <td>{{$item->departemen == null ? '': $item->departemen->nama}}</td>
+                    <td>{{$item->blok == null ? '': $item->blok->nomor}}</td>
+                    <td>{{$item->status}}</td>
                 </tr>
               @endforeach
           </tbody>
         </table>
         <table width="100%">
           <tr>
-            <td width="50%" style="text-align: center"><br/>Pimpinan
+            <td width="50%" style="text-align: center"><br/>
             <br/><br/><br/><br/>
-            (.................)
+            
             </td>
-            <td width="50%" style="text-align: center">Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br/>
-              Admin
+            <td width="50%" style="text-align: center">Muara Teweh, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br/>
+              Mengetahui,
               <br/><br/><br/><br/>
               (.................)
             </td>

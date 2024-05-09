@@ -102,14 +102,14 @@
             </ul>
           </li>
           
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a href="/laporan" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 Laporan
               </p>
             </a>
-          </li> --}}
+          </li>
           <li class="nav-item">
             <a href="/logout" class="nav-link">
               <i class="nav-icon fa fa-sign-out-alt"></i>

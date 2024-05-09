@@ -12,6 +12,11 @@ use App\Pemusnahan;
 use App\Pengeluaran;
 use App\SerahTerima;
 use App\Infrastruktur;
+use App\Kios;
+use App\Pedagang;
+use App\Pegawai;
+use App\Peralihan;
+use App\Retribusi;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -20,31 +25,22 @@ class LaporanController extends Controller
     {
         return view('laporan.index');
     }
-    public function departemen()
+    public function pedagang()
     {
-        $data = Departemen::get();
-        return view('print.departemen', compact('data'));
+        $data = Pedagang::get();
+        return view('print.pedagang', compact('data'));
     }
-    public function teknisi()
+    public function pegawai()
     {
-        $data = Teknisi::get();
-        return view('print.teknisi', compact('data'));
+        $data = Pegawai::get();
+        return view('print.pegawai', compact('data'));
     }
-    public function pengguna()
+    public function kios()
     {
-        $data = Pengguna::get();
-        return view('print.pengguna', compact('data'));
+        $data = Kios::get();
+        return view('print.kios', compact('data'));
     }
-    public function rekanan()
-    {
-        $data = Rekanan::get();
-        return view('print.rekanan', compact('data'));
-    }
-    public function infrastruktur()
-    {
-        $data = Infrastruktur::get();
-        return view('print.infrastruktur', compact('data'));
-    }
+
 
 
     public function periode(Request $req)
@@ -53,20 +49,54 @@ class LaporanController extends Controller
         $to = $req->sampai;
 
         if ($req->jenis == '1') {
-            $data = Jadwal::whereBetween('tanggal', [$from, $to])->get();
-            return view('print.jadwal', compact('data', 'from', 'to'));
+            $data = Retribusi::whereBetween('tanggal_bayar', [$from, $to])->get()->map(function ($item) {
+                if ($item->bulan == 1) {
+                    $item->bulan = 'Januari';
+                }
+                if ($item->bulan == 2) {
+                    $item->bulan = 'Februari';
+                }
+                if ($item->bulan == 3) {
+                    $item->bulan = 'Maret';
+                }
+                if ($item->bulan == 4) {
+                    $item->bulan = 'April';
+                }
+                if ($item->bulan == 5) {
+                    $item->bulan = 'Mei';
+                }
+                if ($item->bulan == 6) {
+                    $item->bulan = 'Juni';
+                }
+                if ($item->bulan == 7) {
+                    $item->bulan = 'Juli';
+                }
+                if ($item->bulan == 8) {
+                    $item->bulan = 'Agustus';
+                }
+                if ($item->bulan == 9) {
+                    $item->bulan = 'September';
+                }
+                if ($item->bulan == 10) {
+                    $item->bulan = 'Oktober';
+                }
+                if ($item->bulan == 11) {
+                    $item->bulan = 'November';
+                }
+                if ($item->bulan == 12) {
+                    $item->bulan = 'Desember';
+                }
+                return $item;
+            });
+            return view('print.retribusi', compact('data', 'from', 'to'));
         }
         if ($req->jenis == '2') {
-            $data = Hasil::whereBetween('created_at', [$from, $to])->get();
-            return view('print.hasil', compact('data', 'from', 'to'));
-        }
-        if ($req->jenis == '3') {
-            $data = SerahTerima::whereBetween('tanggal', [$from, $to])->get();
-            return view('print.serahterima', compact('data', 'from', 'to'));
-        }
-        if ($req->jenis == '4') {
-            $data = Pemusnahan::whereBetween('tanggal', [$from, $to])->get();
-            return view('print.pemusnahan', compact('data', 'from', 'to'));
+            $data = Peralihan::whereBetween('created_at', [$from, $to])->get()->map(function ($item) {
+                $item->pedagang_lama = Pedagang::find($item->pedagang_lama);
+                $item->pedagang_baru = Pedagang::find($item->pedagang_baru);
+                return $item;
+            });
+            return view('print.peralihan', compact('data', 'from', 'to'));
         }
     }
 }

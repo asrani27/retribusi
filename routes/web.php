@@ -94,11 +94,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/user/edit/{id}', 'UserController@update')->name('edituser');
 
     Route::get('/laporan', 'LaporanController@index');
-    Route::get('/laporan/departemen', 'LaporanController@departemen');
-    Route::get('/laporan/teknisi', 'LaporanController@teknisi');
+    Route::get('/laporan/pedagang', 'LaporanController@pedagang');
+    Route::get('/laporan/pegawai', 'LaporanController@pegawai');
     Route::get('/laporan/kios', 'LaporanController@kios');
-    Route::get('/laporan/rekanan', 'LaporanController@rekanan');
-    Route::get('/laporan/infrastruktur', 'LaporanController@infrastruktur');
 
     Route::get('/laporan/periode', 'LaporanController@periode');
 });
