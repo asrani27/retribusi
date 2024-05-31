@@ -24,7 +24,7 @@
     <tr>
       <td width=100><img src="/logo.png" width="70px"></td>
       <td align=center class="judul"><b><font size="5">
-        PASAR BEBAS BANJIR<br />DINAS PERDAGANGAN DAN PERINDUSTRIAN KABUPATEN BARITO KUALA</font></b><br/>
+        PASAR BEBAS BANJIR<br />DINAS PERDAGANGAN DAN PERINDUSTRIAN KABUPATEN BARITO UTARA</font></b><br/>
         <b>JL Yetro Sinseng No 69, Muara Teweh Kalimantan Tengah 73812<br></b>
       </td>
       <td width=100></td>
