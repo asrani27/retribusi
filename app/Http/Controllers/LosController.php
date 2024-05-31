@@ -44,7 +44,7 @@ class LosController extends Controller
     {
         $s = Los::find($id);
         $s->nomor = $req->nomor;
-        $s->luas = $req->luas;
+        $s->nama = $req->nama;
         $s->blok_id = $req->blok_id;
         $s->status = $req->status;
         $s->save();
