@@ -95,6 +95,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/laporan', 'LaporanController@index');
     Route::get('/laporan/pedagang', 'LaporanController@pedagang');
+    Route::get('/laporan/perpedagang', 'LaporanController@perpedagang');
     Route::get('/laporan/pegawai', 'LaporanController@pegawai');
     Route::get('/laporan/kios', 'LaporanController@kios');
 

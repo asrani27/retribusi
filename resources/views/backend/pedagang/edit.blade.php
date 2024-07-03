@@ -66,7 +66,7 @@
                         <select class="form-control" name="blok_id">
                           @foreach ($blok as $item)
                               
-                          <option value="{{$item->id}}"{{$data->blok_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
+                          <option value="{{$item->id}}"{{$data->blok_id == $item->id ? 'selected':''}}>{{$item->nomor}}</option>
                           @endforeach
                         </select>
                       </div>

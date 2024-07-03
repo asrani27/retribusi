@@ -66,7 +66,7 @@
                         <select class="form-control" name="blok_id">
                           @foreach ($blok as $item)
                               
-                          <option value="{{$item->id}}">{{$item->nama}}</option>
+                          <option value="{{$item->id}}">{{$item->nomor}}</option>
                           @endforeach
                         </select>
                       </div>

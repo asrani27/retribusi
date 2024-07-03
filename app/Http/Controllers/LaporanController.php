@@ -26,11 +26,11 @@ class LaporanController extends Controller
         $pedagang = Pedagang::get();
         return view('laporan.index', compact('pedagang'));
     }
-    public function perpedagang()
-    {
-        $data = Pedagang::get();
-        return view('print.pedagang', compact('data'));
-    }
+    // public function perpedagang()
+    // {
+    //     $data = Pedagang::get();
+    //     return view('print.pedagang', compact('data'));
+    // }
     public function pedagang()
     {
         $data = Pedagang::get();
@@ -47,6 +47,52 @@ class LaporanController extends Controller
         return view('print.kios', compact('data'));
     }
 
+    public function perpedagang(Request $req)
+    {
+        $pedagang_id = $req->pedagang_id;
+        $pedagang = Pedagang::find($pedagang_id);
+        $data = Retribusi::where('pedagang_id', $pedagang_id)->get()->map(function ($item) {
+            if ($item->bulan == 1) {
+                $item->bulan = 'Januari';
+            }
+            if ($item->bulan == 2) {
+                $item->bulan = 'Februari';
+            }
+            if ($item->bulan == 3) {
+                $item->bulan = 'Maret';
+            }
+            if ($item->bulan == 4) {
+                $item->bulan = 'April';
+            }
+            if ($item->bulan == 5) {
+                $item->bulan = 'Mei';
+            }
+            if ($item->bulan == 6) {
+                $item->bulan = 'Juni';
+            }
+            if ($item->bulan == 7) {
+                $item->bulan = 'Juli';
+            }
+            if ($item->bulan == 8) {
+                $item->bulan = 'Agustus';
+            }
+            if ($item->bulan == 9) {
+                $item->bulan = 'September';
+            }
+            if ($item->bulan == 10) {
+                $item->bulan = 'Oktober';
+            }
+            if ($item->bulan == 11) {
+                $item->bulan = 'November';
+            }
+            if ($item->bulan == 12) {
+                $item->bulan = 'Desember';
+            }
+            return $item;
+        });
+
+        return view('print.perpedagang', compact('data', 'pedagang'));
+    }
 
 
     public function periode(Request $req)

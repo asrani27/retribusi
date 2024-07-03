@@ -51,7 +51,7 @@
                             <td>{{$item->jkel}}</td>
                             <td>{{$item->telp}}</td>
                             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
-                            <td>{{$item->blok == null ? '': $item->blok->nama}}</td>
+                            <td>{{$item->blok == null ? '': $item->blok->nomor}}</td>
                             <td>
                                 <a href="/pedagang/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/pedagang/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

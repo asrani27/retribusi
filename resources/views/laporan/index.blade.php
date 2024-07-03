@@ -72,7 +72,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form method="get" action="/laporan/periode" target="_blank">
+                <form method="get" action="/laporan/perpedagang" target="_blank">
                   @csrf
                   
                   <select name="pedagang_id" class="form-control" required>
