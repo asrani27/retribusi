@@ -45,7 +45,7 @@
     </div>
     <!-- /.row -->
     <strong>NAMA PEDAGANG : {{$pedagang->nama}}<BR/>
-    NAMA BLOK TOKO : {{$pedagang->blok == null ? '': $pedagang->blok->nama}}<BR/>
+    NAMA BLOK TOKO : {{$pedagang->blok == null ? '': $pedagang->blok->nomor}}<BR/>
   </strong>
     <!-- Table row --> 
     <div class="row">
