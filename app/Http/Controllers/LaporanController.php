@@ -23,7 +23,13 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        return view('laporan.index');
+        $pedagang = Pedagang::get();
+        return view('laporan.index', compact('pedagang'));
+    }
+    public function perpedagang()
+    {
+        $data = Pedagang::get();
+        return view('print.pedagang', compact('data'));
     }
     public function pedagang()
     {

@@ -60,6 +60,17 @@
                         <input type="text" class="form-control" name="telp" placeholder="telp">
                       </div>
                     </div>
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Blok Toko</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" name="blok_id">
+                          @foreach ($blok as $item)
+                              
+                          <option value="{{$item->id}}">{{$item->nama}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
                     
                   </div>
                   <!-- /.card-body -->

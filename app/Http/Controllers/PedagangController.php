@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blok;
 use App\Pedagang;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -16,7 +17,8 @@ class PedagangController extends Controller
 
     public function add()
     {
-        return view('backend.pedagang.add');
+        $blok = Blok::get();
+        return view('backend.pedagang.add', compact('blok'));
     }
 
     public function save(Request $req)
@@ -27,6 +29,7 @@ class PedagangController extends Controller
         $s->jkel = $req->jkel;
         $s->telp = $req->telp;
         $s->tanggal = $req->tanggal;
+        $s->blok_id = $req->blok_id;
         $s->save();
         Alert::success('Data Berhasil Di Simpan', 'Info Message');
         return redirect('/pedagang');
@@ -35,7 +38,8 @@ class PedagangController extends Controller
     public function edit($id)
     {
         $data = Pedagang::find($id);
-        return view('backend.pedagang.edit', compact('data'));
+        $blok = Blok::get();
+        return view('backend.pedagang.edit', compact('data', 'blok'));
     }
 
     public function update(Request $req, $id)
@@ -46,6 +50,7 @@ class PedagangController extends Controller
         $s->jkel = $req->jkel;
         $s->telp = $req->telp;
         $s->tanggal = $req->tanggal;
+        $s->blok_id = $req->blok_id;
         $s->save();
         Alert::success('Data Berhasil Di Update', 'Info Message');
         return redirect('/pedagang');

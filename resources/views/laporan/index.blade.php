@@ -62,6 +62,33 @@
             </div>
           </div>
         </div>
+
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h5>Laporan Per Pedagang</h5>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form method="get" action="/laporan/periode" target="_blank">
+                  @csrf
+                  
+                  <select name="pedagang_id" class="form-control" required>
+                    @foreach ($pedagang as $item)
+                        <option value="{{$item->id}}">{{$item->nama}}</option>
+                    @endforeach
+                  </select>
+                  <br/>
+                  <button type="submit" class="btn btn-primary btn-block">Print Per Pedagang</button>
+                  
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     
